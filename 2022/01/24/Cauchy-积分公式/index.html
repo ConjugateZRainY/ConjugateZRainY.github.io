@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon_32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon_16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Cauchy 定理假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。对于 $\Delta$ 之中的任意一条闭曲线 $\gamma$ 有 $$\oint_{\gamma} f(z) \mathrm{d} z &#x3D; 0 \tag{1}$$ 若 $f(z)$ 在域 $\Delta ^{‘}$ （即开圆盘 $\Delta$ 去除有限个点 $\zeta _{i}$ 后组成）之中解析。若对于所有的 $j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cauchy 积分公式">
+<meta property="og:url" content="http://example.com/2022/01/24/Cauchy-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/index.html">
+<meta property="og:site_name" content="ZRainY-Blog">
+<meta property="og:description" content="Cauchy 定理假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。对于 $\Delta$ 之中的任意一条闭曲线 $\gamma$ 有 $$\oint_{\gamma} f(z) \mathrm{d} z &#x3D; 0 \tag{1}$$ 若 $f(z)$ 在域 $\Delta ^{‘}$ （即开圆盘 $\Delta$ 去除有限个点 $\zeta _{i}$ 后组成）之中解析。若对于所有的 $j">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-24T09:30:02.000Z">
+<meta property="article:modified_time" content="2022-01-24T12:19:06.628Z">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/01/24/Cauchy-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Cauchy 积分公式 | ZRainY-Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ZRainY-Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/Cauchy-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZRainY-Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Cauchy 积分公式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-24 17:30:02 / 修改时间：20:19:06" itemprop="dateCreated datePublished" datetime="2022-01-24T17:30:02+08:00">2022-01-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Cauchy-定理"><a href="#Cauchy-定理" class="headerlink" title="Cauchy 定理"></a>Cauchy 定理</h1><p>假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。对于 $\Delta$ 之中的任意一条闭曲线 $\gamma$ 有</p>
+<p>$$<br>\oint_{\gamma} f(z) \mathrm{d} z = 0 \tag{1}<br>$$</p>
+<p>若 $f(z)$ 在域 $\Delta ^{‘}$ （即开圆盘 $\Delta$ 去除有限个点 $\zeta _{i}$ 后组成）之中解析。若对于所有的 $j$ ， $f(z) $ 满足条件</p>
+<p>$$<br>\lim_{z \to \zeta _{j}} (x - \zeta _{j}) f(z) = 0<br>$$</p>
+<p>那么 $(1) $ 对于 $\Delta ^{‘}$ 内任意闭曲线仍成立。</p>
+<h1 id="引理"><a href="#引理" class="headerlink" title="引理"></a>引理</h1><p><strong>引理</strong>：如果一条分段可微的闭合曲线 $\gamma$ 不通过 $a$ ，那么积分</p>
+<p>$$<br>\int_{\gamma } \frac{\mathrm{d} z }{z-a}<br>$$</p>
+<p>的值是 $2 \pi i$ 的一个倍数。</p>
+<p><strong>证明</strong>：将闭合曲线 $\gamma$ 参数化，设其方程为 $z = z(t)$ ，$\alpha \le t \le \beta$ 。同时 $z(\alpha) = z(\beta)$ 。设原积分为</p>
+<p>$$<br>h(t) = \int_{\alpha }^{t} \frac{z’(t) \mathrm{d} z }{z(t)-a}<br>$$</p>
+<p>解微分方程</p>
+<p>$$<br>h’(t) = \frac{z’(t) }{z(t)-a}<br>$$</p>
+<p>可得到 $\exp{h(\beta)} =1$ ，所以积分的值是 $2 \pi i$ 的一个倍数。</p>
+<h1 id="围绕数"><a href="#围绕数" class="headerlink" title="围绕数"></a>围绕数</h1><p>曲线 $\gamma $ 关于点 $a$ 的围绕数定义：</p>
+<p>$$<br>n(\gamma , a) = \frac{1}{2 \pi i} \oint_{\gamma } \frac{\mathrm{d} z }{z-a}<br>$$</p>
+<h1 id="Cauchy-积分公式"><a href="#Cauchy-积分公式" class="headerlink" title="Cauchy 积分公式"></a>Cauchy 积分公式</h1><p>假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。$\gamma$ 是 $\Delta$ 之中的一条闭曲线。点 $a$ 在开圆盘 $\Delta$ 之中并且 $a$ 不在闭曲线 $\gamma$ 上。</p>
+<p>对函数</p>
+<p>$$<br>F(z) = \frac{f(z)-f(a)}{z-a}<br>$$</p>
+<p>当 $z \ne a$ 时 $F$ 解析。也有</p>
+<p>$$<br>\lim_{z \to a} (z-a)F(z) = 0<br>$$</p>
+<p>应用 <strong>Cauchy 定理</strong>，则有</p>
+<p>$$<br>\int_{\gamma} F(z) \mathrm{d} z =\int_{\gamma} \frac{f(z)-f(a)}{z-a} \mathrm{d} z = 0<br>$$</p>
+<p>移项有</p>
+<p>$$<br>\int_{\gamma } \frac{f(z)}{z-a} \mathrm{d}z =\int_{\gamma } \frac{f(a)}{z-a} \mathrm{d}z<br>$$</p>
+<p>利用<strong>围绕数定义</strong>即可得</p>
+<p>$$<br>n(\gamma ,a) \cdot f(a) = \frac{1}{2\pi i} \int_{\gamma } \frac{f(z)}{z-a} \mathrm{d}z<br>$$</p>
+<p>一般情况下 $n(\gamma , a) = 1$ 时，就有<strong>表示公式</strong></p>
+<p>$$<br>f(a) = \frac{1}{2\pi i} \int_{\gamma } \frac{f(z)}{z-a} \mathrm{d}z<br>$$</p>
+<p>假如对于任意点 $z$ 围绕数始终为 $1$ 那么可将 $z$ 作为变量，稍加改造得</p>
+<p>$$<br>f(z) = \frac{1}{2\pi i} \int_{\gamma } \frac{f(\zeta)}{\zeta-z} \mathrm{d}\zeta<br>$$</p>
+<p>这就是通常所说的 <strong>Cauchy 积分公式</strong>。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+          </div>
+
+        
+
+
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cauchy-%E5%AE%9A%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">Cauchy 定理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">引理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%B4%E7%BB%95%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">围绕数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cauchy-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">Cauchy 积分公式</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

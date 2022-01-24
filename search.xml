@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Cauchy 积分公式</title>
+    <url>/2022/01/24/Cauchy-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="Cauchy-定理"><a href="#Cauchy-定理" class="headerlink" title="Cauchy 定理"></a>Cauchy 定理</h1><p>假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。对于 $\Delta$ 之中的任意一条闭曲线 $\gamma$ 有</p>
+<p>$$<br>\oint_{\gamma} f(z) \mathrm{d} z = 0 \tag{1}<br>$$</p>
+<p>若 $f(z)$ 在域 $\Delta ^{‘}$ （即开圆盘 $\Delta$ 去除有限个点 $\zeta _{i}$ 后组成）之中解析。若对于所有的 $j$ ， $f(z) $ 满足条件</p>
+<p>$$<br>\lim_{z \to \zeta _{j}} (x - \zeta _{j}) f(z) = 0<br>$$</p>
+<p>那么 $(1) $ 对于 $\Delta ^{‘}$ 内任意闭曲线仍成立。</p>
+<h1 id="引理"><a href="#引理" class="headerlink" title="引理"></a>引理</h1><p><strong>引理</strong>：如果一条分段可微的闭合曲线 $\gamma$ 不通过 $a$ ，那么积分</p>
+<p>$$<br>\int_{\gamma } \frac{\mathrm{d} z }{z-a}<br>$$</p>
+<p>的值是 $2 \pi i$ 的一个倍数。</p>
+<p><strong>证明</strong>：将闭合曲线 $\gamma$ 参数化，设其方程为 $z = z(t)$ ，$\alpha \le t \le \beta$ 。同时 $z(\alpha) = z(\beta)$ 。设原积分为</p>
+<p>$$<br>h(t) = \int_{\alpha }^{t} \frac{z’(t) \mathrm{d} z }{z(t)-a}<br>$$</p>
+<p>解微分方程</p>
+<p>$$<br>h’(t) = \frac{z’(t) }{z(t)-a}<br>$$</p>
+<p>可得到 $\exp{h(\beta)} =1$ ，所以积分的值是 $2 \pi i$ 的一个倍数。</p>
+<h1 id="围绕数"><a href="#围绕数" class="headerlink" title="围绕数"></a>围绕数</h1><p>曲线 $\gamma $ 关于点 $a$ 的围绕数定义：</p>
+<p>$$<br>n(\gamma , a) = \frac{1}{2 \pi i} \oint_{\gamma } \frac{\mathrm{d} z }{z-a}<br>$$</p>
+<h1 id="Cauchy-积分公式"><a href="#Cauchy-积分公式" class="headerlink" title="Cauchy 积分公式"></a>Cauchy 积分公式</h1><p>假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。$\gamma$ 是 $\Delta$ 之中的一条闭曲线。点 $a$ 在开圆盘 $\Delta$ 之中并且 $a$ 不在闭曲线 $\gamma$ 上。</p>
+<p>对函数</p>
+<p>$$<br>F(z) = \frac{f(z)-f(a)}{z-a}<br>$$</p>
+<p>当 $z \ne a$ 时 $F$ 解析。也有</p>
+<p>$$<br>\lim_{z \to a} (z-a)F(z) = 0<br>$$</p>
+<p>应用 <strong>Cauchy 定理</strong>，则有</p>
+<p>$$<br>\int_{\gamma} F(z) \mathrm{d} z =\int_{\gamma} \frac{f(z)-f(a)}{z-a} \mathrm{d} z = 0<br>$$</p>
+<p>移项有</p>
+<p>$$<br>\int_{\gamma } \frac{f(z)}{z-a} \mathrm{d}z =\int_{\gamma } \frac{f(a)}{z-a} \mathrm{d}z<br>$$</p>
+<p>利用<strong>围绕数定义</strong>即可得</p>
+<p>$$<br>n(\gamma ,a) \cdot f(a) = \frac{1}{2\pi i} \int_{\gamma } \frac{f(z)}{z-a} \mathrm{d}z<br>$$</p>
+<p>一般情况下 $n(\gamma , a) = 1$ 时，就有<strong>表示公式</strong></p>
+<p>$$<br>f(a) = \frac{1}{2\pi i} \int_{\gamma } \frac{f(z)}{z-a} \mathrm{d}z<br>$$</p>
+<p>假如对于任意点 $z$ 围绕数始终为 $1$ 那么可将 $z$ 作为变量，稍加改造得</p>
+<p>$$<br>f(z) = \frac{1}{2\pi i} \int_{\gamma } \frac{f(\zeta)}{\zeta-z} \mathrm{d}\zeta<br>$$</p>
+<p>这就是通常所说的 <strong>Cauchy 积分公式</strong>。</p>
+]]></content>
+      <tags>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+</search>
