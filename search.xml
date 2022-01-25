@@ -3,12 +3,12 @@
   <entry>
     <title>Cauchy 积分公式</title>
     <url>/2022/01/24/Cauchy-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="Cauchy-定理"><a href="#Cauchy-定理" class="headerlink" title="Cauchy 定理"></a>Cauchy 定理</h1><p>假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。对于 $\Delta$ 之中的任意一条闭曲线 $\gamma$ 有</p>
+    <content><![CDATA[<h2 id="Cauchy-定理"><a href="#Cauchy-定理" class="headerlink" title="Cauchy 定理"></a>Cauchy 定理</h2><p>假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。对于 $\Delta$ 之中的任意一条闭曲线 $\gamma$ 有</p>
 <p>$$<br>\oint_{\gamma} f(z) \mathrm{d} z = 0 \tag{1}<br>$$</p>
 <p>若 $f(z)$ 在域 $\Delta ^{‘}$ （即开圆盘 $\Delta$ 去除有限个点 $\zeta _{i}$ 后组成）之中解析。若对于所有的 $j$ ， $f(z) $ 满足条件</p>
 <p>$$<br>\lim_{z \to \zeta _{j}} (x - \zeta _{j}) f(z) = 0<br>$$</p>
 <p>那么 $(1) $ 对于 $\Delta ^{‘}$ 内任意闭曲线仍成立。</p>
-<h1 id="引理"><a href="#引理" class="headerlink" title="引理"></a>引理</h1><p><strong>引理</strong>：如果一条分段可微的闭合曲线 $\gamma$ 不通过 $a$ ，那么积分</p>
+<h2 id="引理"><a href="#引理" class="headerlink" title="引理"></a>引理</h2><p><strong>引理</strong>：如果一条分段可微的闭合曲线 $\gamma$ 不通过 $a$ ，那么积分</p>
 <p>$$<br>\int_{\gamma } \frac{\mathrm{d} z }{z-a}<br>$$</p>
 <p>的值是 $2 \pi i$ 的一个倍数。</p>
 <p><strong>证明</strong>：将闭合曲线 $\gamma$ 参数化，设其方程为 $z = z(t)$ ，$\alpha \le t \le \beta$ 。同时 $z(\alpha) = z(\beta)$ 。设原积分为</p>
@@ -16,9 +16,10 @@
 <p>解微分方程</p>
 <p>$$<br>h’(t) = \frac{z’(t) }{z(t)-a}<br>$$</p>
 <p>可得到 $\exp{h(\beta)} =1$ ，所以积分的值是 $2 \pi i$ 的一个倍数。</p>
-<h1 id="围绕数"><a href="#围绕数" class="headerlink" title="围绕数"></a>围绕数</h1><p>曲线 $\gamma $ 关于点 $a$ 的围绕数定义：</p>
+<h2 id="围绕数"><a href="#围绕数" class="headerlink" title="围绕数"></a>围绕数</h2><p>曲线 $\gamma $ 关于点 $a$ 的围绕数定义：</p>
 <p>$$<br>n(\gamma , a) = \frac{1}{2 \pi i} \oint_{\gamma } \frac{\mathrm{d} z }{z-a}<br>$$</p>
-<h1 id="Cauchy-积分公式"><a href="#Cauchy-积分公式" class="headerlink" title="Cauchy 积分公式"></a>Cauchy 积分公式</h1><p>假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。$\gamma$ 是 $\Delta$ 之中的一条闭曲线。点 $a$ 在开圆盘 $\Delta$ 之中并且 $a$ 不在闭曲线 $\gamma$ 上。</p>
+<p>这就是刚才提到的 $2 \pi i$ 的倍数。从几何上看，代表了曲线 $\gamma $ 围绕点 $a$ 的圈数。并且，以点 $a$ 在左手边行进的方向为正，逆方向为负。</p>
+<h2 id="Cauchy-积分公式"><a href="#Cauchy-积分公式" class="headerlink" title="Cauchy 积分公式"></a>Cauchy 积分公式</h2><p>假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。$\gamma$ 是 $\Delta$ 之中的一条闭曲线。点 $a$ 在开圆盘 $\Delta$ 之中并且 $a$ 不在闭曲线 $\gamma$ 上。</p>
 <p>对函数</p>
 <p>$$<br>F(z) = \frac{f(z)-f(a)}{z-a}<br>$$</p>
 <p>当 $z \ne a$ 时 $F$ 解析。也有</p>
@@ -35,6 +36,89 @@
 <p>$$<br>f(z) = \frac{1}{2\pi i} \int_{\gamma } \frac{f(\zeta)}{\zeta-z} \mathrm{d}\zeta<br>$$</p>
 <p>这就是通常所说的 <strong>Cauchy 积分公式</strong>。</p>
 ]]></content>
+      <categories>
+        <category>复变函数</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Euclidian Space</title>
+    <url>/2022/01/25/Euclidean/</url>
+    <content><![CDATA[<h2 id="n-dimensional-Euclidian-Space"><a href="#n-dimensional-Euclidian-Space" class="headerlink" title="n - dimensional Euclidian Space"></a>n - dimensional Euclidian Space</h2><p>We have acknowledged the real number set $\mathbb{R}$. By the knowledge of Cartesian product, we can define $\mathbb{R}^n = \mathbb{R} \times \cdots \times \mathbb{R}$. It will be a vector space if equipped with 8 calculation rules. On this vector space, $\boldsymbol{a}$ presents a point. We can find unit vectors or a natural basis of $\mathbb{R}^n$ as ${\boldsymbol{e_1, \cdots , e_n}}$ so that<br>$$<br>\boldsymbol{x} = \sum_{i=1}^{n} x_i \boldsymbol{e_i}.<br>$$<br>Suppose $\boldsymbol{a,b}$ are vectors and we define a <strong>inner product</strong> like this:<br>$$<br>\boldsymbol{a \cdot b} = \sum_{i=1}^{n}a_i b_i<br>$$<br>It’s easy to check whether the definition meets 3 properties of So now a n-dimensional Euclidian space is generated. Then it’s natural to define the <strong>norm</strong> of vectors.<br>$$<br>\left | \boldsymbol{a} \right | = \sqrt{\boldsymbol{a\cdot b}}<br>$$<br>The norm is a metric. Then we define $B_r(\boldsymbol{x})$, which describes a ball with its center $\boldsymbol{x}$ and radius $r$.  </p>
+<p>Now we are capable of giving a definition of limitation on $\mathbb{R}^n$. We have a point list  ${\boldsymbol{x_i}}$ and a point $\boldsymbol{a} \in \mathbb{R}^n$. if for every $\epsilon &gt;0$, there exists a $N$ such that for all $n&gt;N$ we have $\boldsymbol{x_n} \in B_{\epsilon}(\boldsymbol{a})$, we say ${\boldsymbol{x_i}}$ converges to $\boldsymbol{a}$, namely<br>$$<br>\lim _{n \to \infty} \boldsymbol{x_n=a}<br>$$<br>Another definition of convergence is that the sequence of points converges according to the components. Actually both are equivalent. Obviously we can transfer some theorems on the original set of real numbers to a new space such as Bolzano-Weierstrass theorem and ‘Bounded convergence’. </p>
+]]></content>
+      <categories>
+        <category>点集拓扑</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 指南</title>
+    <url>/2022/01/24/Hexo-%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解析函数</title>
+    <url>/2022/01/25/%E8%A7%A3%E6%9E%90%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h2 id="解析函数"><a href="#解析函数" class="headerlink" title="解析函数"></a>解析函数</h2><p><strong>解析函数类</strong>由定义域上<strong>每一点都存在导数</strong>的<strong>复变量的复函数</strong>组成。<strong>全纯函数</strong>也常用于表示相同意义。</p>
+<p>设函数 $f$ 具有以下形式：</p>
+<p>$$<br>f(z) = u(z) + iv(z)<br>$$</p>
+<p>导数定义即为如下形式：</p>
+<p>$$<br>f’(z) = \lim_{k \to \infty} \frac{f(z+h)-f(z)}{h}<br>$$</p>
+<p>不管 $h$ 如何趋于 $0$ ，差商极限都应相同。分别选取 $h$ 为实数或虚数，可得 <strong>Cauchy - Riemann 方程组</strong>：</p>
+<p>$$<br>\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \<br>\frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}<br>$$</p>
+<p>对于 $|f’(z)|$ 有：</p>
+<p>$$<br>|f’(z)|^2 = \frac{\partial (u, v)}{\partial (x, y)}<br>$$</p>
+<p>解析函数的导数本身也是解析的。是故 $u$ 和 $v$ 具有各阶连续偏导数。</p>
+]]></content>
+      <categories>
+        <category>复变函数</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线积分</title>
+    <url>/2022/01/25/%E7%BA%BF%E7%A7%AF%E5%88%86/</url>
+    <content><![CDATA[<h2 id="线积分"><a href="#线积分" class="headerlink" title="线积分"></a>线积分</h2><p>形如</p>
+<p>$$<br>\int_{\gamma} p \mathrm{d} x + q \mathrm{d} y<br>$$</p>
+<p>的一般线积分是关于弧 $\gamma$ 的<strong>泛函</strong>。假设 $p$ 和 $q$ 定义在同一域 $\Omega$ 之中并且 $p, q \in C(\Omega)$ ，而 $\gamma$ 是任意的。有一类特殊的积分是只依赖于弧的两个端点的。常微分方程中如下方程称为<strong>恰当方程（exact equation）</strong>:</p>
+<p>$$<br>\mathrm{d} U = M \mathrm{d} x + N \mathrm{d} y = 0<br>$$</p>
+<p>其中</p>
+<p>$$<br>\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}<br>$$</p>
+<p>一个积分只依赖于两个端点，当且仅当被积函数是一个恰当微分。若</p>
+<p>$$<br>f(z) \mathrm{d} z = f(z)\mathrm{d} x + if(z)\mathrm{d}y<br>$$</p>
+<p>为一恰当微分，那么 $f$ 的原函数 $F$ 需满足 Cauchy - Riemann 方程。所以 $F(z) $ 是具有导数 $f(z)$ 的<strong>解析函数</strong>。</p>
+<h2 id="Cauchy-定理"><a href="#Cauchy-定理" class="headerlink" title="Cauchy 定理"></a>Cauchy 定理</h2><p>假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。对于 $\Delta$ 之中的任意一条闭曲线 $\gamma$ 有</p>
+<p>$$<br>\oint_{\gamma} f(z) \mathrm{d} z = 0 \tag{1}<br>$$</p>
+<p>若 $f(z)$ 在域 $\Delta ^{‘}$ （即开圆盘 $\Delta$ 去除有限个点 $\zeta _{i}$ 后组成）之中解析。若对于所有的 $j$ ， $f(z) $ 满足条件</p>
+<p>$$<br>\lim_{z \to \zeta _{j}} (x - \zeta _{j}) f(z) = 0<br>$$</p>
+<p>那么 $(1) $ 对于 $\Delta ^{‘}$ 内任意闭曲线仍成立。</p>
+]]></content>
+      <categories>
+        <category>复变函数</category>
+      </categories>
       <tags>
         <tag>数学</tag>
       </tags>

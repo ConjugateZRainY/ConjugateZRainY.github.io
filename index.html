@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 6.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/Favicon_32.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/Favicon_32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/Favicon_16.ico">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="mask-icon" href="/images/Favicon_32.ico" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -17,14 +17,17 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ZRainY-Blog">
+  <meta name="description" content="个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZRainY&#39;s Blog">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="ZRainY-Blog">
+<meta property="og:site_name" content="ZRainY&#39;s Blog">
+<meta property="og:description" content="个人博客">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Zhang Ruiyi">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/">
@@ -40,7 +43,7 @@
   };
 </script>
 
-  <title>ZRainY-Blog</title>
+  <title>ZRainY's Blog</title>
   
 
 
@@ -91,13 +94,15 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">ZRainY-Blog</h1>
+      <h1 class="site-title">ZRainY's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
+      <p class="site-subtitle" itemprop="description">分享知识，留住感想。</p>
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -112,16 +117,58 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -144,21 +191,21 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/Cauchy-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/25/Euclidean/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Zhang Ruiyi">
+      <meta itemprop="description" content="个人博客">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZRainY-Blog">
+      <meta itemprop="name" content="ZRainY's Blog">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/01/24/Cauchy-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/" class="post-title-link" itemprop="url">Cauchy 积分公式</a>
+            <a href="/2022/01/25/Euclidean/" class="post-title-link" itemprop="url">Euclidian Space</a>
         </h2>
 
         <div class="post-meta">
@@ -169,7 +216,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-01-24 17:30:02 / 修改时间：20:19:06" itemprop="dateCreated datePublished" datetime="2022-01-24T17:30:02+08:00">2022-01-24</time>
+              <time title="创建时间：2022-01-25 15:05:51 / 修改时间：15:03:18" itemprop="dateCreated datePublished" datetime="2022-01-25T15:05:51+08:00">2022-01-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/" itemprop="url" rel="index"><span itemprop="name">点集拓扑</span></a>
+                </span>
             </span>
 
           
@@ -183,38 +239,318 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Cauchy-定理"><a href="#Cauchy-定理" class="headerlink" title="Cauchy 定理"></a>Cauchy 定理</h1><p>假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。对于 $\Delta$ 之中的任意一条闭曲线 $\gamma$ 有</p>
-<p>$$<br>\oint_{\gamma} f(z) \mathrm{d} z = 0 \tag{1}<br>$$</p>
-<p>若 $f(z)$ 在域 $\Delta ^{‘}$ （即开圆盘 $\Delta$ 去除有限个点 $\zeta _{i}$ 后组成）之中解析。若对于所有的 $j$ ， $f(z) $ 满足条件</p>
-<p>$$<br>\lim_{z \to \zeta _{j}} (x - \zeta _{j}) f(z) = 0<br>$$</p>
-<p>那么 $(1) $ 对于 $\Delta ^{‘}$ 内任意闭曲线仍成立。</p>
-<h1 id="引理"><a href="#引理" class="headerlink" title="引理"></a>引理</h1><p><strong>引理</strong>：如果一条分段可微的闭合曲线 $\gamma$ 不通过 $a$ ，那么积分</p>
-<p>$$<br>\int_{\gamma } \frac{\mathrm{d} z }{z-a}<br>$$</p>
-<p>的值是 $2 \pi i$ 的一个倍数。</p>
-<p><strong>证明</strong>：将闭合曲线 $\gamma$ 参数化，设其方程为 $z = z(t)$ ，$\alpha \le t \le \beta$ 。同时 $z(\alpha) = z(\beta)$ 。设原积分为</p>
-<p>$$<br>h(t) = \int_{\alpha }^{t} \frac{z’(t) \mathrm{d} z }{z(t)-a}<br>$$</p>
-<p>解微分方程</p>
-<p>$$<br>h’(t) = \frac{z’(t) }{z(t)-a}<br>$$</p>
-<p>可得到 $\exp{h(\beta)} =1$ ，所以积分的值是 $2 \pi i$ 的一个倍数。</p>
-<h1 id="围绕数"><a href="#围绕数" class="headerlink" title="围绕数"></a>围绕数</h1><p>曲线 $\gamma $ 关于点 $a$ 的围绕数定义：</p>
-<p>$$<br>n(\gamma , a) = \frac{1}{2 \pi i} \oint_{\gamma } \frac{\mathrm{d} z }{z-a}<br>$$</p>
-<h1 id="Cauchy-积分公式"><a href="#Cauchy-积分公式" class="headerlink" title="Cauchy 积分公式"></a>Cauchy 积分公式</h1><p>假设 $f(z)$ 在开圆盘 $\Delta$ 之中解析。$\gamma$ 是 $\Delta$ 之中的一条闭曲线。点 $a$ 在开圆盘 $\Delta$ 之中并且 $a$ 不在闭曲线 $\gamma$ 上。</p>
-<p>对函数</p>
-<p>$$<br>F(z) = \frac{f(z)-f(a)}{z-a}<br>$$</p>
-<p>当 $z \ne a$ 时 $F$ 解析。也有</p>
-<p>$$<br>\lim_{z \to a} (z-a)F(z) = 0<br>$$</p>
-<p>应用 <strong>Cauchy 定理</strong>，则有</p>
-<p>$$<br>\int_{\gamma} F(z) \mathrm{d} z =\int_{\gamma} \frac{f(z)-f(a)}{z-a} \mathrm{d} z = 0<br>$$</p>
-<p>移项有</p>
-<p>$$<br>\int_{\gamma } \frac{f(z)}{z-a} \mathrm{d}z =\int_{\gamma } \frac{f(a)}{z-a} \mathrm{d}z<br>$$</p>
-<p>利用<strong>围绕数定义</strong>即可得</p>
-<p>$$<br>n(\gamma ,a) \cdot f(a) = \frac{1}{2\pi i} \int_{\gamma } \frac{f(z)}{z-a} \mathrm{d}z<br>$$</p>
-<p>一般情况下 $n(\gamma , a) = 1$ 时，就有<strong>表示公式</strong></p>
-<p>$$<br>f(a) = \frac{1}{2\pi i} \int_{\gamma } \frac{f(z)}{z-a} \mathrm{d}z<br>$$</p>
-<p>假如对于任意点 $z$ 围绕数始终为 $1$ 那么可将 $z$ 作为变量，稍加改造得</p>
-<p>$$<br>f(z) = \frac{1}{2\pi i} \int_{\gamma } \frac{f(\zeta)}{\zeta-z} \mathrm{d}\zeta<br>$$</p>
-<p>这就是通常所说的 <strong>Cauchy 积分公式</strong>。</p>
+          <p>建立一个空间就像搭积木一样。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/25/Euclidean/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/25/%E7%BA%BF%E7%A7%AF%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhang Ruiyi">
+      <meta itemprop="description" content="个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZRainY's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/25/%E7%BA%BF%E7%A7%AF%E5%88%86/" class="post-title-link" itemprop="url">线积分</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-25 14:27:44 / 修改时间：14:42:03" itemprop="dateCreated datePublished" datetime="2022-01-25T14:27:44+08:00">2022-01-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/" itemprop="url" rel="index"><span itemprop="name">复变函数</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>从线积分到恰当方程再到 Cauchy 定理。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/25/%E7%BA%BF%E7%A7%AF%E5%88%86/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/25/%E8%A7%A3%E6%9E%90%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhang Ruiyi">
+      <meta itemprop="description" content="个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZRainY's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/25/%E8%A7%A3%E6%9E%90%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">解析函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-25 14:06:29 / 修改时间：14:41:45" itemprop="dateCreated datePublished" datetime="2022-01-25T14:06:29+08:00">2022-01-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/" itemprop="url" rel="index"><span itemprop="name">复变函数</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>解析函数类的定义。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/25/%E8%A7%A3%E6%9E%90%E5%87%BD%E6%95%B0/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/Cauchy-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhang Ruiyi">
+      <meta itemprop="description" content="个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZRainY's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/24/Cauchy-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/" class="post-title-link" itemprop="url">Cauchy 积分公式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-24 17:30:02" itemprop="dateCreated datePublished" datetime="2022-01-24T17:30:02+08:00">2022-01-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-25 14:41:25" itemprop="dateModified" datetime="2022-01-25T14:41:25+08:00">2022-01-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0/" itemprop="url" rel="index"><span itemprop="name">复变函数</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>从 Cauchy 定理到 Cauchy 积分公式。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/24/Cauchy-%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/24/Hexo-%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zhang Ruiyi">
+      <meta itemprop="description" content="个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZRainY's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/24/Hexo-%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Hexo 指南</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-24 15:55:58" itemprop="dateCreated datePublished" datetime="2022-01-24T15:55:58+08:00">2022-01-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-25 14:36:29" itemprop="dateModified" datetime="2022-01-25T14:36:29+08:00">2022-01-25</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Hexo 中一些常用命令。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/24/Hexo-%E6%8C%87%E5%8D%97/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -287,20 +623,24 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name"></p>
-  <div class="site-description" itemprop="description"></div>
+  <p class="site-author-name" itemprop="name">Zhang Ruiyi</p>
+  <div class="site-description" itemprop="description">个人博客</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -331,7 +671,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder"></span>
+  <span class="author" itemprop="copyrightHolder">Zhang Ruiyi</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
@@ -370,6 +710,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
