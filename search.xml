@@ -44,6 +44,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Euclidean Space</title>
+    <url>/2022/01/25/Euclidean/</url>
+    <content><![CDATA[<h2 id="n-dimensional-Euclidian-Space"><a href="#n-dimensional-Euclidian-Space" class="headerlink" title="n - dimensional Euclidian Space"></a>n - dimensional Euclidian Space</h2><p>We have acknowledged the real number set $\mathbb{R}$. </p>
+<p>By the knowledge of Cartesian product, we can define $\mathbb{R}^n = \mathbb{R} \times \cdots \times \mathbb{R}$. It will be a vector space if equipped with 8 calculation rules. On this vector space, $\boldsymbol{a}$ presents a point. We can find unit vectors or a natural basis of $\mathbb{R}^n$ as ${\boldsymbol{e_1, \cdots , e_n}}$ so that</p>
+<p>$$<br>\boldsymbol{x} = \sum_{i=1}^{n} x_i \boldsymbol{e_i}.<br>$$</p>
+<p>Suppose $\boldsymbol{a,b}$ are vectors and we define a <strong>inner product</strong> like this:</p>
+<p>$$<br>\boldsymbol{a \cdot b} = \sum_{i=1}^{n}a_i b_i<br>$$</p>
+<p>It’s easy to check whether the definition meets 3 properties of So now a n-dimensional Euclidian space is generated. Then it’s natural to define the <strong>norm</strong> of vectors.</p>
+<p>$$<br>\left | \boldsymbol{a} \right | = \sqrt{\boldsymbol{a\cdot a}}<br>$$</p>
+<p>The norm is a metric. Then we define $B_r(\boldsymbol{x})$, which describes a ball with its center $\boldsymbol{x}$ and radius $r$.</p>
+<p>Now we are capable of giving a definition of limitation on $\mathbb{R}^n$. We have a point list  ${\boldsymbol{x_i}}$ and a point $\boldsymbol{a} \in \mathbb{R}^n$. if for every $\epsilon &gt;0$, there exists a $N$ such that for all $n&gt;N$ we have $\boldsymbol{x_n} \in B_{\epsilon}(\boldsymbol{a})$, we say ${\boldsymbol{x_i}}$ converges to $\boldsymbol{a}$, namely</p>
+<p>$$<br>\lim _{n \to \infty} \boldsymbol{x_n=a}<br>$$</p>
+<p>Another definition of convergence is that the sequence of points converges according to the components. Actually both are equivalent. Obviously we can transfer some theorems on the original set of real numbers to a new space such as Bolzano-Weierstrass theorem and “Bounded convergence”.</p>
+]]></content>
+      <categories>
+        <category>点集拓扑</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo 指南</title>
     <url>/2022/01/24/Hexo-%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -84,19 +106,6 @@
 ]]></content>
       <categories>
         <category>复变函数</category>
-      </categories>
-      <tags>
-        <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Euclidian Space</title>
-    <url>/2022/01/25/Euclidean/</url>
-    <content><![CDATA[<h2 id="n-dimensional-Euclidian-Space"><a href="#n-dimensional-Euclidian-Space" class="headerlink" title="n - dimensional Euclidian Space"></a>n - dimensional Euclidian Space</h2><p>We have acknowledged the real number set $\mathbb{R}$. By the knowledge of Cartesian product, we can define $\mathbb{R}^n = \mathbb{R} \times \cdots \times \mathbb{R}$. It will be a vector space if equipped with 8 calculation rules. On this vector space, $\boldsymbol{a}$ presents a point. We can find unit vectors or a natural basis of $\mathbb{R}^n$ as ${\boldsymbol{e_1, \cdots , e_n}}$ so that<br>$$<br>\boldsymbol{x} = \sum_{i=1}^{n} x_i \boldsymbol{e_i}.<br>$$<br>Suppose $\boldsymbol{a,b}$ are vectors and we define a <strong>inner product</strong> like this:<br>$$<br>\boldsymbol{a \cdot b} = \sum_{i=1}^{n}a_i b_i<br>$$<br>It’s easy to check whether the definition meets 3 properties of So now a n-dimensional Euclidian space is generated. Then it’s natural to define the <strong>norm</strong> of vectors.<br>$$<br>\left | \boldsymbol{a} \right | = \sqrt{\boldsymbol{a\cdot b}}<br>$$<br>The norm is a metric. Then we define $B_r(\boldsymbol{x})$, which describes a ball with its center $\boldsymbol{x}$ and radius $r$.  </p>
-<p>Now we are capable of giving a definition of limitation on $\mathbb{R}^n$. We have a point list  ${\boldsymbol{x_i}}$ and a point $\boldsymbol{a} \in \mathbb{R}^n$. if for every $\epsilon &gt;0$, there exists a $N$ such that for all $n&gt;N$ we have $\boldsymbol{x_n} \in B_{\epsilon}(\boldsymbol{a})$, we say ${\boldsymbol{x_i}}$ converges to $\boldsymbol{a}$, namely<br>$$<br>\lim _{n \to \infty} \boldsymbol{x_n=a}<br>$$<br>Another definition of convergence is that the sequence of points converges according to the components. Actually both are equivalent. Obviously we can transfer some theorems on the original set of real numbers to a new space such as Bolzano-Weierstrass theorem and ‘Bounded convergence’. </p>
-]]></content>
-      <categories>
-        <category>点集拓扑</category>
       </categories>
       <tags>
         <tag>数学</tag>
