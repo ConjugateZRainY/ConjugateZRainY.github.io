@@ -1,0 +1,16 @@
+# Local SSL certificates
+*.pem
+
+# Local Script
+dev.sh
+
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+
+# Local Caches produced by HUGO
+/public
+
+# macOS Finder trash
+./DS_Store
