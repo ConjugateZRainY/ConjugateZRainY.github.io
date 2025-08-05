@@ -1,8 +1,6 @@
 ---
 date: '2025-08-01T15:57:25+08:00'
 draft: false
-params:
-  math: true
 title: '微分流形（一）流形上的微积分'
 tags: ['微分流形']
 ---
