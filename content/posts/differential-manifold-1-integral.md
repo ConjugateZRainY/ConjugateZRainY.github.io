@@ -1,66 +1,71 @@
 ---
 date: '2025-08-01T15:57:25+08:00'
 draft: false
-title: '微分流形（一）流形上的微积分'
-tags: ['微分流形']
+title: 'Differential Manifolds (Part I): Calculus on Manifolds'
+tags: ['Differential Manifolds']
+language: en
 ---
 
-本系列预计有三篇文章。
-1. 从流形的定义出发，到流形上的积分。
-2. 从 Lie 群开始，到 Lie 群上的积分，不变测度。
-3. 从联络开始，涉及 Riemann 流形，抵达 Gauss-Bonnet-Chern 定理和 Atiyah-Singer 指标定理。
+This series is expected to consist of three articles.
+1. From the definition of manifolds to integration on manifolds.
+2. From Lie groups to integration on Lie groups and invariant measures.
+3. From connections, involving Riemannian manifolds, arriving at the Gauss-Bonnet-Chern theorem and the Atiyah-Singer index theorem.
 
-微分流形是很多现代代数和分析应用的场所，所以很多工具看起来都是神来之笔，信手拈来。本文叙述的只是一种逻辑建构，实际数学史上的发展路径相当复杂。
+Differential manifolds are the venue for many modern applications in algebra and analysis. Consequently, many tools appear to be strokes of genius, available at one's fingertips. What this article describes is merely a logical construction; the actual developmental path in the history of mathematics was considerably more complex.
 
 # 流形、Manifold、多様体、Mannigfaltigkeit
 
-为了把微积分从欧氏空间推广到更一般的“空间”上，我们先问：什么样的空间才有资格做微积分？最自然的外延，最合理的答案是“局部看起来像欧氏空间”的拓扑空间——即每一点的邻域都能展平成一块标准的 \(\mathbb{R}^n\)。我们称这样的空间为**流形**，记作 \(\mathcal{M}\)。这个“局部欧氏”的要求，是今天教科书里最常用的定义。
+To generalize calculus from Euclidean space to more general "spaces," we first ask: what kind of space is qualified to host calculus? The most natural extension and the most reasonable answer is a topological space that "looks like Euclidean space locally"—meaning the neighborhood of every point can be flattened into a standard \(\mathbb{R}^n\). We call such a space a **manifold**, denoted as \(\mathcal{M}\). This requirement of being "locally Euclidean" is the definition most commonly used in textbooks today.
 
-- 这一定义是**内蕴**的：我们只关心 \(\mathcal{M}\) 自身的结构，而不假设它躺在某个更大的背景空间里。Hermann Weyl 在讲课时最先明确提出这一观点，后来成了主流。内蕴的潜台词是：不管背景空间和局部坐标怎么变换，内在的性质仍然保持，不随之改变。
-- 与此相对，Vladimir Arnold 偏爱**外蕴**的视角：先承认整个欧氏空间是一个流形，再把日常见到的“曲面”“曲线”等直接看成欧氏空间的子集（子流形）。根据 Whitney 嵌入定理，任何 \(n\) 维内蕴流形都能嵌入到某个 \(2n\) 维的欧氏空间；因此两种视角在数学上等价——只是出发点不同。
+- This definition is **intrinsic**: We care only about the structure of \(\mathcal{M}\) itself, without assuming it lies within some larger background space. Hermann Weyl was the first to explicitly propose this view during his lectures, and it later became the mainstream approach. The subtext of the intrinsic view is: no matter how the background space or local coordinates transform, the inherent properties remain maintained and do not change accordingly.
+- In contrast, Vladimir Arnold preferred the **extrinsic** perspective: first acknowledge that the entire Euclidean space is a manifold, and then view the "surfaces" and "curves" seen in daily life directly as subsets (submanifolds) of Euclidean space. According to the Whitney Embedding Theorem, any \(n\)-dimensional intrinsic manifold can be embedded into some \(2n\)-dimensional Euclidean space; thus, the two perspectives are mathematically equivalent—only the starting points differ.
 
-现代教学中，**图册**和**光滑转换映射**被用来严格定义微分流形。对于流形 \(\mathcal{M}\) 上的每个点我们可以建立一个**坐标卡** \((U, \phi)\)。一堆坐标卡 \(\{(U_{\alpha}, \phi_{\alpha})\}\) 的集合就是一本图册，就像是导览整个流形的地图。光滑转换则要求任何两个存在重叠部分的坐标卡 \((U, \phi)\) 和 \((V, \psi)\) 要满足 \(\phi \circ \psi^{-1}\) 是光滑的。因为一个点可能被多个坐标卡覆盖。光滑流形之间可以有光滑映射 \(f: \mathcal{M} \to \mathcal{N}\)。
+In modern pedagogy, **atlases** and **smooth transition maps** are used to strictly define differential manifolds. For every point on the manifold \(\mathcal{M}\), we can establish a **coordinate chart** \((U, \phi)\). A collection of coordinate charts \(\{(U_{\alpha}, \phi_{\alpha})\}\) constitutes an atlas, much like a map guiding one through the entire manifold. Smooth transition requires that for any two coordinate charts \((U, \phi)\) and \((V, \psi)\) with overlapping parts, the map \(\phi \circ \psi^{-1}\) must be smooth. This is because a single point may be covered by multiple charts. Between smooth manifolds, there can be smooth maps \(f: \mathcal{M} \to \mathcal{N}\).
 
-# 外蕴视角到内蕴视角，切向量转变为导子
+# From Extrinsic to Intrinsic, Tangent Vectors to Derivations
 
-在流形上的一点 \(p\) 处，我们可以想到定义切空间 \( T_p \mathcal{M}\)，切空间之中的元素叫做切向量。几何直观上可以引导许多例子，例如三维欧氏空间的球面上每一点可以作一个切平面。从这里开始，一切变得魔幻起来。
+At a point \(p\) on a manifold, we can conceive of defining a tangent space \( T_p \mathcal{M}\), the elements of which are called tangent vectors. Geometric intuition can lead to many examples, such as the tangent plane that can be constructed at every point on a sphere in three-dimensional Euclidean space. From here on, things begin to get magical.
 
-几何直观是外蕴的，它假设球面“坐”在三维空间里。在球面上一点  \(p\) 处（比如北极点），一个非零向量的切向量 \(v\) 应该指向哪里？
-如果你把球面看作是嵌在三维欧氏空间里的，那没问题。向量 \(v\) 是三维欧氏空间里的一个向量，它位于与球面在 \(p\) 点相切的那个平面上。但请注意，这个向量（除了零向量）的终点 \(p + v\) 已经不在球面上了。它戳出去了！
+Geometric intuition is extrinsic; it assumes the sphere "sits" inside three-dimensional space. At a point \(p\) on the sphere (say, the North Pole), where should a non-zero tangent vector \(v\) point?
+If you view the sphere as embedded in three-dimensional Euclidean space, there is no problem. The vector \(v\) is a vector in the 3D Euclidean space, lying on the plane tangent to the sphere at point \(p\). But note that the endpoint of this vector (unless it is the zero vector), \(p + v\), is no longer on the sphere. It pokes out!
 
-转换到内蕴视角，如果我们只知道球面自身，不知道它外面还有个三维欧氏的背景空间，那 \(p + v\) 这个操作就完全没有意义了。流形 \(\mathcal{M}\) 本身不是一个向量空间，不能把一个点和一个“向量”相加得到流形上的另一个点。“箭头”的方向是没有意义的。因此，经典的“箭头”模型，要么依赖于一个更大的外围空间（外蕴视角），要么在纯粹的流形内部根本无法定义。为了建立一个只依赖流形自身结构的理论，我们必须抛弃把切向量视为“箭头”的模型。这里还蕴藏了对于旧有视角的升级——其实 \(p + v\) 之中 \(p\) 和 \(v\) 不是在相同的空间，进一步可以拓展到物理上的广义坐标概念。
+Switching to the intrinsic perspective, if we only know the sphere itself and are unaware of an enclosing 3D Euclidean background space, the operation \(p + v\) becomes completely meaningless. The manifold \(\mathcal{M}\) itself is not a vector space; one cannot add a point and a "vector" to get another point on the manifold. The direction of the "arrow" is meaningless. Therefore, the classic "arrow" model either relies on a larger ambient space (extrinsic perspective) or cannot be defined at all within the pure manifold. To build a theory dependent only on the manifold's own structure, we must discard the model of regarding tangent vectors as "arrows." This also implies an upgrade to the old perspective—actually, in \(p + v\), \(p\) and \(v\) are not in the same space. This can be further extended to the concept of generalized coordinates in physics. There is essentially a perspective upgrade here: vectors are not just arrays of components; functions can also be vectors. As long as it is an Abelian group. Do not be misled by the framework of coordinates.
 
-为了获取内蕴的视角，摆脱这个依赖，现代数学做出了代数的选择。数学家们发现切向量的作用是求函数沿某个方向的变化率。因为对于欧氏空间之中点 \(p\) 处的切向量 \(v = (v^1, \cdots, v^n)\)，在此处函数 \(f\) 的方向导数 \(D_v f\) 就是 \(D_v f\big|_p = v^i \frac{\partial f}{\partial x^i}\big|_p\)（此处使用 Einstein 求和约定）。
+To obtain the intrinsic perspective and shake off this dependency, modern mathematics made an algebraic choice. Mathematicians discovered that the role of a tangent vector is to compute the rate of change of a function along a certain direction. For a tangent vector \(v = (v^1, \cdots, v^n)\) at a point \(p\) in Euclidean space, the directional derivative of a function \(f\) at this location is \(D_v f\big|_p = v^i \frac{\partial f}{\partial x^i}\big|_p\) (using Einstein summation convention).
 
-现在，我们把切向量看作是作用在流形上光滑函数上的**算子** \(X_p(\cdot) = D_v (\cdot)\)。也就是 \(X_p : C^\infty(U) \to \mathbb{R}\)，接受一个流形上的光滑函数 \(f\)，返回方向导数 \(X_p(f)\)。我们除了研究算子满足什么样的运算规则，没有其他选择。\(X_p\) 就是线性算子。而至关重要的一点是 \(X_p\) 是一个**导子**（满足 Leibniz 法则）。切空间 \( T_p \mathcal{M}\) 就是这些 \(X_p\) 的集合。
+Now, we view the tangent vector as an **operator** acting on smooth functions on the manifold: \(X_p(\cdot) = D_v (\cdot)\). That is, \(X_p : C^\infty(U) \to \mathbb{R}\), which accepts a smooth function \(f\) on the manifold and returns the directional derivative \(X_p(f)\). Aside from studying what operational rules the operator satisfies, we have no other choice. \(X_p\) is a linear operator. Crucially, \(X_p\) is a **derivation** (satisfying the Leibniz rule). The tangent space \( T_p \mathcal{M}\) is the set of these \(X_p\).
 
-由于线性性质，\( T_p \mathcal{M}\) 就是线性空间。我们就要发问。
+Due to linearity, \( T_p \mathcal{M}\) is a linear space. We must then ask:
 
-- 这个线性空间有没有对偶空间？
-- 这个线性空间是无穷维的还是有限维的？
-  - 如果是有限维的，维数是多少？
+- Does this linear space have a dual space?
+- Is this linear space infinite-dimensional or finite-dimensional?
+  - If finite-dimensional, what is the dimension?
 
-切空间 \( T_p \mathcal{M}\) 的维数与流形 \(\mathcal{M}\) 的维数完全相同。虽然我们是为了摆脱对外在坐标的依赖才引入了导子的抽象定义，但要研究这个抽象空间的结构，我们又必须借助坐标卡这个唯一的能进行具体计算的工具。现在所做的就是从抽象到具体的计算。借助局部坐标卡 \((U, \phi)\) 给出的局部坐标 \((x^1, \cdots, x^n)\)，根据 **Hadamard 引理**我们可知 \(X_p(f) = X_p(x^i) \frac{\partial f}{\partial x^i}\Big|_p \)，说明偏导数 \( \left \{\frac{\partial }{\partial x^i}\Big|_p \right \}\) 就是 \( T_p \mathcal{M}\) 的一组基，自然而然切空间的对偶空间——**余切空间** \( T_p^* \mathcal{M}\) 也有一组对偶基记为 \( \{dx^i\}\)，满足 \(dx^i(\frac{\partial}{\partial x^j}) = \frac{\partial}{\partial x^j} x^i = \delta^{i}_j\) 的运算规则。这样对偶运算定义为 \(df(X_p) = X_p(f) \)，\(df\) 是余切空间之中的元素，不难得到经典结论 \(df = \frac{\partial f}{\partial x^i} dx^i\)。
+The dimension of the tangent space \( T_p \mathcal{M}\) is exactly the same as that of the manifold \(\mathcal{M}\). Although we introduced the abstract definition of derivations to define tangent vectors without relying on external coordinates, to study the structure of this abstract space, we must rely on coordinate charts—the only tool capable of concrete calculation. What we do now is move from the abstract to specific calculation. Using the local coordinates \((x^1, \cdots, x^n)\) given by a local chart \((U, \phi)\), and according to **Hadamard's Lemma**, we know that \(X_p(f) = X_p(x^i) \frac{\partial f}{\partial x^i}\Big|_p \). This shows that the partial derivatives \( \left \{\frac{\partial }{\partial x^i}\Big|_p \right \}\) form a basis for \( T_p \mathcal{M}\). Naturally, the dual space of the tangent space—the **cotangent space** \( T_p^* \mathcal{M}\)—also has a dual basis denoted as \( \{dx^i\}\), satisfying the operational rule \(dx^i(\frac{\partial}{\partial x^j}) = \frac{\partial}{\partial x^j} x^i = \delta^{i}_j\). Thus, the dual operation is defined as \(df(X_p) = X_p(f) \), where \(df\) is an element of the cotangent space. It is not hard to obtain the classic result \(df = \frac{\partial f}{\partial x^i} dx^i\).
 
-有一种定义方式是考虑流形 \(\mathcal{M}\) 上的曲线 \(c(t): (-\epsilon, \epsilon) \to M\)，这条曲线在 \(t=0\) 处经过 \(p\) 点。从几何直观上，\(c'(0)\) 就是 \(p\) 点处的切向量。但是这个定义显然不是内蕴的。因为计算导数要求我们计算 \(c(h) - c(0)\)，而流形未必是向量空间，无法做加减法，除非我们把它放在一个外在的背景下，视为欧氏空间之中的向量——这就回到了外蕴的视角。所以，我们无法把 \(c'(0)\) 视作一个“向量”，而是视为作用在 \(p\) 此处的光滑函数上的导子，也就是
-\(c'(0) f = \frac{d(f \circ c)}{dt}\Big|_{t=0}\)。由于曲线 \(c\) 可以有多种选取方式，因此定义在 \(t=0\) 时刻 \(c(0)=p\) 且 \(c'(0) f\) 都相等的 \(c'(0)\) 的等价类，按照等价关系分类得到切向量。
+One way of defining this is to consider a curve \(c(t): (-\epsilon, \epsilon) \to M\) on the manifold \(\mathcal{M}\), which passes through point \(p\) at \(t=0\). Geometrically, \(c'(0)\) is the tangent vector at point \(p\). But this definition is obviously not intrinsic. Calculating the derivative requires us to compute \(c(h) - c(0)\), and since the manifold may not be a vector space, subtraction is impossible unless we place it in an external context and view it as a vector in Euclidean space—which returns us to the extrinsic perspective. Therefore, we cannot view \(c'(0)\) as a "vector," but rather as a derivation acting on smooth functions at \(p\), i.e.,
+\(c'(0) f = \frac{d(f \circ c)}{dt}\Big|_{t=0}\). Since the curve \(c\) can be chosen in many ways, we define the tangent vector via the equivalence class of curves such that at \(t=0\), \(c(0)=p\) and \(c'(0) f\) are all equal. Tangent vectors are obtained by classifying according to this equivalence relation.
 
-曲线定义就像一种脚手架，可以解释一些动机，从曲线定义得到代数结论，再把曲线定义这个脚手架拆除。刚才我们讨论的是单个流形的内容。我们也可以利用曲线定义导出转移映射的定义。如果 \(F: \mathcal M \to \mathcal N\) 是从流形 \(\mathcal M\) 到 \(\mathcal N\) 的映射，和前面一样定义 \(p\) 和 \(c(t)\)，那么 \(F \circ c\) 就是流形 \(\mathcal N\) 上经过点 \(F(p)\) 的曲线。现在问题是在映射下原来 \(p\) 处的切向量 \(X_p\) 变得如何了？如果 \(g:C^{\infty}_{F(p)}(\mathcal N) \to \mathbb R\)，可以求导得到\((F \circ c)'(0)[g] = \frac{d}{dt} (g \circ F \circ c) \Big|_{t=0} = c'(0)[g \circ F] \)。据此我们可以得到导子 \(\bar{X}_{F(p)} g = X_p(g \circ F)\)。因此也定义推出 \(F_{*, p} : T_p \mathcal M \to T_{F(p)}\mathcal N\)，规则为 \(F_{*,p}(X_p)[g] = X_p(g \circ F) \)。顾名思义，推出就是把 \(\mathcal M\) 上\(p\)处的切向量推到 \(\mathcal N\) 上\(F(p)\)处。范畴论的背景我们不做深究。
+The curve definition is like a scaffold; it can explain some motivations and derive algebraic conclusions, after which the scaffolding of the curve definition can be removed. We just discussed the content of a single manifold. We can also use the curve definition to derive the definition of transition maps (push-forwards). If \(F: \mathcal M \to \mathcal N\) is a map from manifold \(\mathcal M\) to \(\mathcal N\), and defining \(p\) and \(c(t)\) as before, then \(F \circ c\) is a curve on manifold \(\mathcal N\) passing through point \(F(p)\). The question now is: what happens to the tangent vector \(X_p\) at \(p\) under the mapping? If \(g:C^{\infty}_{F(p)}(\mathcal N) \to \mathbb R\), we can differentiate to get
+\[\begin{aligned}
+  (F \circ c)'(0)[g] &= \frac{d}{dt} (g \circ F \circ c) \Big|_{t=0} \\
+&= c'(0)[g \circ F] \end{aligned}\]
+Based on this, we can obtain the derivation \(\bar{X}_{F(p)} g = X_p(g \circ F)\). Thus, we define the push-forward \(F_{*, p} : T_p \mathcal M \to T_{F(p)}\mathcal N\), with the rule \(F_{*,p}(X_p)[g] = X_p(g \circ F) \). As the name implies, push-forward pushes the tangent vector at \(p\) on \(\mathcal M\) to \(F(p)\) on \(\mathcal N\). We will not delve deeply into the category theory background here.
 
-这些定义呈现一种唯一性，定义**拉回**操作\(F^*: T^*_{F(p)}\mathcal N \to T^*_{p} \mathcal M\)，\((F^*w)_{p}X_p = \omega_{F(p)}\bar{X}_{F(p)} = \omega_{F(p)} F_* X_{p}\)，这其实有点无奈。从字面上，拉回就是把流形 \(\mathcal N\) 上的函数或者微分形式拉回到 \(\mathcal M\)。
+These definitions present a kind of uniqueness. Defining the **pull-back** operation \(F^*: T^*_{F(p)}\mathcal N \to T^*_{p} \mathcal M\), where \((F^*w)_{p}X_p = \omega_{F(p)}\bar{X}_{F(p)} = \omega_{F(p)} F_* X_{p}\), is actually a bit by necessity. Literally, pull-back means pulling functions or differential forms on manifold \(\mathcal N\) back to \(\mathcal M\).
 
-# 微分结构：从点到场的粘合剂
+# Differential Structure: The Glue from Point to Field
 
-现在，为了解决流形上的积分问题，我们需要找到一个不局限于一点的，在整个流形上有定义的光滑的微分形式 \(d\omega\)。为了连接起每一点处的切空间和余切空间，这就引出了切丛 \(T \mathcal{M}\) 和余切丛 \(T^* \mathcal{M}\) 。切丛就是切空间的不交并，\(T \mathcal{M} = \sqcup_{p \in \mathcal{M}} T_p \mathcal M = \cup_{p \in \mathcal{M}} \{p\} \times T_p \mathcal M\)。从而我们可能定义整个流形上的向量场 \(X: p \to X_p\)和 1-形式 \(\omega: p \to \omega_p\)。\(T_p \mathcal M\) 就是 \(p\) 点处长出来的纤维，对每一点 \(p\) 我们选择特定的 \(X_p\) 在流形上能够定义出截面。想象一下理发师给顾客剪发，电推子平推过头发，留下了一个截面（毛囊就是 \(p\)，头皮就是流形，每一根头发就是纤维 \(T_p \mathcal M\)，剪发就是截面操作）。
+Now, to solve the problem of integration on manifolds, we need to find a smooth differential form \(d\omega\) that is not limited to a single point but defined over the entire manifold. To connect the tangent space and cotangent space at every point, this leads to the tangent bundle \(T \mathcal{M}\) and the cotangent bundle \(T^* \mathcal{M}\). The tangent bundle is the disjoint union of tangent spaces, \(T \mathcal{M} = \sqcup_{p \in \mathcal{M}} T_p \mathcal M = \cup_{p \in \mathcal{M}} \{p\} \times T_p \mathcal M\). Thus, we can define vector fields \(X: p \to X_p\) and 1-forms \(\omega: p \to \omega_p\) over the entire manifold. \(T_p \mathcal M\) is the fiber growing out of point \(p\). For every point \(p\), selecting a specific \(X_p\) allows us to define a section on the manifold. Imagine a barber cutting a customer's hair; the electric clippers glide flatly across the hair, leaving a section (the hair follicle is \(p\), the scalp is the manifold, every strand of hair is the fiber \(T_p \mathcal M\), and the haircut is the section operation).
 
-微分形式，Wedge 的定义，外微分，所有这些都是从广义 Stokes 定理 \(\int_{\partial \mathcal M} \omega = \int_{\mathcal M } d \omega\) 反向建构的而定义。只有满足反对称性的楔积，它在坐标变换下的行为才完美地、自动地与积分换元公式中的 Jacobi 行列式匹配。
+Differential forms, the definition of Wedge, exterior differentiation—all these are constructed in reverse from the Generalized Stokes' Theorem \(\int_{\partial \mathcal M} \omega = \int_{\mathcal M } d \omega\). Only with a wedge product satisfying antisymmetry does its behavior under coordinate transformation perfectly and automatically match the Jacobian determinant in the integration change of variables formula.
 
-为了定义 Wedge product，就要谈到张量积，张量积 \(\otimes\) 是为了多重线性映射定义的。例如对于 \(V \otimes V\)，模掉形如 \(v \otimes v\) 的元素生成的理想 \(I\)，\(V \otimes V / I\) 就是反对称的，wedge product 就从这里来。外微分则是一个反导子，并且满足 \(d^2 = 0\)，从而我们以此可以定义链复形。
+To define the Wedge product, we must talk about the tensor product. The tensor product \(\otimes\) is defined for multilinear maps. For example, for \(V \otimes V\), by modding out the ideal \(I\) generated by elements of the form \(v \otimes v\), \(V \otimes V / I\) becomes antisymmetric, and this is where the wedge product comes from. The exterior derivative is an anti-derivation and satisfies \(d^2 = 0\), from which we can define chain complexes.
 
-# 流形上的积分
+# Integration on Manifolds
 
-回到流形上的积分，我们无法直接在弯曲空间上计算，但我们可以将问题拆解成无数个可以在平直的欧氏空间中解决的小块，然后再把结果平滑地拼贴起来。不能在任何流形上随意积分，因为我们遇见的是有向的积分。一个 \(n\) 维流形是可定向的，当且仅当它存在一个处处非零的 \(n\) 阶微分形式，为每一点的切空间都定义了一个符号，从而让积分的值不会因为坐标选择的不同而差一个正负号。
+Returning to integration on manifolds, we cannot calculate directly on a curved space, but we can break the problem down into countless small pieces that can be solved in flat Euclidean space, and then smooth paste the results together. One cannot integrate arbitrarily on any manifold because we are dealing with oriented integration. An \(n\)-dimensional manifold is orientable if and only if there exists a nowhere-vanishing \(n\)-form, which defines a sign for the tangent space at every point, ensuring that the value of the integral does not differ by a sign due to the choice of coordinates.
 
-如果一个坐标卡 \((U, \phi)\) 就能覆盖整个流形，那么其上的积分就可以拉回到欧氏空间，\( \int_{U} \omega = \int_{\phi(U)} (\phi^{-1})^* \omega \)。如果有多个坐标卡，那就利用单位分解。单位分解这个技术之中最为重要的一点就是局部有限性，保证了分解的加和是有限和。单位分解把图册上的微分形式限制到了每个坐标卡上，同时积分的值不依赖于单位分解的选择。广义 Stokes 定理的证明则除了应用流形上的积分，还要利用带边流形的定义。这种对带边流形 \(\mathcal H^n\) 的应用，和 Соболев 空间的迹定理异曲同工。
+If a single coordinate chart \((U, \phi)\) can cover the entire manifold, then the integral on it can be pulled back to Euclidean space, \( \int_{U} \omega = \int_{\phi(U)} (\phi^{-1})^* \omega \). If there are multiple coordinate charts, we use a partition of unity. The most important point in the technique of partition of unity is local finiteness, which ensures the sum of the decomposition is a finite sum. The partition of unity restricts the differential forms on the atlas to each coordinate chart, while the value of the integral remains independent of the choice of the partition of unity. The proof of the Generalized Stokes' Theorem, in addition to applying integration on manifolds, also utilizes the definition of manifolds with boundary. This application to manifolds with boundary \(\mathcal H^n\) is similar in purpose to the Trace Theorem in Sobolev spaces.
 
-最后，由于 \(d^2 = 0\) 这种 exact 的性质，以及根据广义 Stokes 定理得到的 \(d\) 和 \(\partial \) 的伴随关系，我们引出 de Rham 上同调理论。毫无疑问，有了这些就可以用同调代数之中的许多工具，例如 Mayer-Vietoris 序列。
+Finally, due to the exact property of \(d^2 = 0\), and the adjoint relationship between \(d\) and \(\partial \) obtained from the Generalized Stokes' Theorem, we derive de Rham cohomology theory. Undoubtedly, with these, we can use many tools from homological algebra, such as the Mayer-Vietoris sequence.

@@ -1,18 +1,19 @@
 ---
 date: '2025-07-15T22:20:41+08:00'
 draft: false
-title: 'HUGO & PaperMod 在 macOS 搭建个人博客（注意事项向）'
+title: 'Building a Personal Blog on macOS with HUGO & PaperMod (Tips and Notes)'
 ---
 
-HUGO 搭建个人博客已经相当成熟了。挂载到 GitHub Pages 相当方便。本次搭建个人博客，主要参考了 [SonnyCalcr's Blog](https://sonnycalcr.github.io/posts/build-a-blog-using-hugo-papermod-github-pages/) （最主要参考文献，深表感谢），[HUGO 官方网页][2] 和 [PaperMod 官方网页][3]，在 YouTube 上相关视频，如 [Getting Started with HUGO](https://youtu.be/hjD9jTi_DQ4?si=X0IAU6-BeV3Ezcv9)。本文档的动机在于说明笔者配置过程之中遇到的问题。
+Building a personal blog with HUGO is now quite mature. Hosting it on GitHub Pages is very convenient. This setup of my personal blog mainly referenced [SonnyCalcr's Blog](https://sonnycalcr.github.io/posts/build-a-blog-using-hugo-papermod-github-pages/) (the primary reference, for which I am deeply grateful), the [HUGO Official Website][2], and the [PaperMod Official Website][3], as well as related videos on YouTube, such as [Getting Started with HUGO](
 
-# PaperMod 的官方文档建议 yaml 格式
-官方文档：[We’ll be using yml/yaml format for all examples down below, it is recommend to use yaml over toml as it is easier to read.](https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-installation/)，所以 HUGO 建站命令是
+# PaperMod's Official Documentation Recommends YAML Format
+Official documentation: [We’ll be using yml/yaml format for all examples down below, it is recommend to use yaml over toml as it is easier to read.](https://adityatelange.github.io/hugo-PaperMod/posts/papermod-installation/), so the command to create a HUGO site is:
 ```bash
 hugo new site MyFreshWebsite --format yaml
 # replace MyFreshWebsite with name of your website
 ```
-没有添加 `--format yaml`也没关系，在 HUGO 建立的文件夹（在这个官方例子里就是 MyFreshWebsite）中把 HUGO.toml 删除，新建 HUGO.yaml 并添加内容（当然是可以改动的，关键是换成 yaml 语法）
+
+It doesn't matter if you didn't add --format yaml. In the folder created by HUGO (which is MyFreshWebsite in this official example), delete hugo.toml, create a new hugo.yaml, and add the content (of course, this can be modified; the key is switching to YAML syntax):
 ```yaml
 baseURL: "https://examplesite.com/"
 title: ExampleSite
@@ -22,8 +23,11 @@ languageCode: en-us
 # 博客主目录的 layouts 结构应对应 themes 之中 layouts 的文件夹结构
 HUGO 的逻辑是先找博客根目录的，如 layouts 内部的样式文件（*.html），然后再找 themes/PaperMod/layouts 之中的样式文件（这个例子里面主题是 PaperMod）。在自定义主题时，如果直接更改 themes/PaperMod/layouts 内部的主题，这部分内容会在主题（PaperMod）更新时被覆盖。因此，**不要直接更改 themes/PaperMod 之中的文件**。正确的操作是在和 `themes` 同级的 `layouts` 之中建立**同样结构**的文件夹，并从 `themes/PaperMod/layouts` 之中复制文件到和 `themes` 同级的，博客根目录的 `layouts` 内部对应的文件夹之中。
 
-# MathJax 添加 AMS 宏包支持
-目前网络上流传的大部分是早期的解决方案。实际上，MathJax v3 的配置已经更新在 HUGO Docs 之中的 [Mathematics in Markdown](https://gohugo.io/content-management/mathematics/#article) 。
+# The Structure of layouts in the Blog's Root Directory Should Correspond to the Folder Structure in themes/layouts
+HUGO's logic is to first look for style files (*.html) in the blog's root directory, such as inside layouts, and then look for style files in themes/PaperMod/layouts (in this example, the theme is PaperMod). When customizing the theme, if you directly modify the theme inside themes/PaperMod/layouts, this content will be overwritten when the theme (PaperMod) is updated. Therefore, **do not directly modify files within themes/PaperMod**. The correct operation is to create folders of the same structure in the `layouts` directory at the same level as `themes`, and copy files from themes/PaperMod/layouts to the corresponding folders inside the `layouts` directory of the blog's root.
+
+# MathJax Adding AMS Package Support
+Most solutions circulating on the internet currently are early versions. In fact, the configuration for MathJax v3 has been updated in the HUGO Docs under [Mathematics in Markdown](https://gohugo.io/content-management/mathematics/#article) 。
 ```html
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script>
@@ -40,18 +44,23 @@ HUGO 的逻辑是先找博客根目录的，如 layouts 内部的样式文件（
 </script>
 ```
 
-# 本地配置问题
+Now that MathJax comes to the 4th edition, we can adjust the part of the link as
+```html
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script> 
+```
 
-1. 在 macOS 本地使用 `hugo server` 命令时，默认使用 `http` 协议。需要配置证书，具体操作就是使用 brew 安装 mkcert。具体命令如下（记得在博客的目录中运行以下命令）
+# Local Configuration Issues
+
+1. When using the `hugo server` command locally on macOS, it defaults to the `http`protocol. You need to configure certificates; the specific method is to install `mkcert` using `brew`. The specific commands are as follows (remember to run the following commands in the blog directory):
 ```bash
 brew install mkcert
 mkcert -install
 mkcert localhost
 hugo server --tlsCertFile localhost.pem --tlsKeyFile localhost-key.pem
 ```
-`mkcert localhost`会在当前目录下生成两个文件：localhost.pem (证书) 和 localhost-key.pem (私钥)。最后要记得将生成的证书文件添加到 .gitignore。
+`mkcert localhost` will generate two files in the current directory: `localhost.pem` (certificate) and `localhost-key.pem` (private key)。Finally, remember to add the generated certificate files to `.gitignore`.
 
-2. 本地显示中，Safari 不一定能够正常显示网页 icon，而 Chrome 则完整显示。实际挂载到 GitHub Pages 以后，在线浏览的内容都是正常的。
+2. In local preview, Safari may not necessarily display the website icon correctly, while Chrome displays it perfectly. After actually deploying to GitHub Pages, the content viewed online is normal.
 
 [2]: <https://gohugo.io> "HUGO"
 

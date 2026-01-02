@@ -1,6 +1,6 @@
 baseURL: https://ConjugateZRainY.github.io/
-languageCode: zh-cn
-title: 松风水月
+languageCode: en-us
+title: "Zenith Rains Yield 🧐 "
 copyright: "[© 2024 ZRainYConjugate‘s Blog](https://ConjugateZRainY.github.io/)"
 theme: ["PaperMod"]
 
@@ -10,7 +10,7 @@ buildDrafts: false # 构建时是否包括草稿
 buildFuture: false # 构建未来发布的内容
 buildExpired: false # 构建过期的内容
 enableEmoji: true # 允许 emoji
-defaultContentLanguage: zh # 顶部首先展示的语言界面
+defaultContentLanguage: en # 顶部首先展示的语言界面
 defaultContentLanguageInSubdir: false # 是否要在地址栏加上默认的语言代码
 pygmentsUseClasses: true
 caches:
@@ -18,29 +18,27 @@ caches:
     dir: :cacheDir/images
     
 languages:
-  zh:
-    languageName: "中文" # 展示的语言名
-    weight: 1 # 权重
+  en:
+    languageName: "English" # 展示的语言名
+    weight: 20 # 权重
+    contentDir: content # 内容目录
     taxonomies: # 分类系统
       category: categories
       tag: tags
     menus:
       main:
-        - name: 首页
+        - name: Home
           pageRef: /
           weight: 4 # 控制在页面上展示的前后顺序
-        - name: 归档
+        - name: Archives
           pageRef: archives/
           weight: 5
-        - name: 标签
+        - name: Tags
           pageRef: tags/
           weight: 10
-        - name: 搜索
+        - name: Search
           pageRef: search/
           weight: 20
-        #- name: 关于
-        #  pageRef: about/
-        #  weight: 21
 
 markup:
   goldmark:
@@ -85,15 +83,15 @@ params:
   math: true
   homeInfoParams:
     # 首页的 profile 内容
-    Title: "ZRainYConjugate‘s Blog 🧐"
+    Title: "Zenith Rains Yield 🧐"
     # 首页的 profile 内容
-    Content: 一个人的生命应当是这样度过的：当他回首往事时，不因虚度年华而悔恨，也不因碌碌无为而羞耻。这样，他在临死的时候就能够说：我整个的生命和全部精力，都已经献给世界上最壮丽的事业——为人类的解放而作的斗争。
+    Content: Faith, as such, is extremely detrimental to human life, it is the negation of reason. But you must remember that religion is an early form of philosophy, that the first attempts to explain the universe, to give a coherent frame of reference to man’s life and a code of moral values, were made by religion, before men graduated or developed enough to have philosophy. And, as philosophies, some religions have very valuable moral points. They may have a good influence or proper principles to inculcate, but in a very contradictory context and, on a very – how should I say it? – dangerous or malevolent base, on the ground of faith. -- Ayn Rand.
   socialIcons:
-    - name: github
-      title: Follow my Github
+    - name: GitHub
+      title: Follow my GitHub
       url: "https://github.com/ConjugateZRainY"
     - name: xiaohongshu
-      title: 关注我的小红书
+      title: Follow my RedNote
       url: "https://www.xiaohongshu.com/user/profile/61d965210000000021028dab"
       icon: xiaohongshu
   assets:
