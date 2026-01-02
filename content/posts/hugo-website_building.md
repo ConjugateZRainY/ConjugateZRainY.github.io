@@ -20,9 +20,6 @@ title: ExampleSite
 languageCode: en-us
 ```
 
-# 博客主目录的 layouts 结构应对应 themes 之中 layouts 的文件夹结构
-HUGO 的逻辑是先找博客根目录的，如 layouts 内部的样式文件（*.html），然后再找 themes/PaperMod/layouts 之中的样式文件（这个例子里面主题是 PaperMod）。在自定义主题时，如果直接更改 themes/PaperMod/layouts 内部的主题，这部分内容会在主题（PaperMod）更新时被覆盖。因此，**不要直接更改 themes/PaperMod 之中的文件**。正确的操作是在和 `themes` 同级的 `layouts` 之中建立**同样结构**的文件夹，并从 `themes/PaperMod/layouts` 之中复制文件到和 `themes` 同级的，博客根目录的 `layouts` 内部对应的文件夹之中。
-
 # The Structure of layouts in the Blog's Root Directory Should Correspond to the Folder Structure in themes/layouts
 HUGO's logic is to first look for style files (*.html) in the blog's root directory, such as inside layouts, and then look for style files in themes/PaperMod/layouts (in this example, the theme is PaperMod). When customizing the theme, if you directly modify the theme inside themes/PaperMod/layouts, this content will be overwritten when the theme (PaperMod) is updated. Therefore, **do not directly modify files within themes/PaperMod**. The correct operation is to create folders of the same structure in the `layouts` directory at the same level as `themes`, and copy files from themes/PaperMod/layouts to the corresponding folders inside the `layouts` directory of the blog's root.
 
